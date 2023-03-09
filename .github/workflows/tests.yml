@@ -19,3 +19,12 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: "./dist"
+          deploy-message: "Deploy from GitHub Actions"
+        env:
+          NETLIFY_AUTH_TOKEN: "jru1hcvRWWQM32HEKCWEPSSRK9SJh-ukluhztLhjNa8"
+          NETLIFY_SITE_ID: "d17ddb8a-fa6a-4c20-83f7-823d4a530916"
+        timeout-minutes: 1
